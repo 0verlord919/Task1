@@ -6,7 +6,7 @@ connection.on("AddUser", function (user) {
     console.log(user);
     var t = $('#users').DataTable();
     t.row.add(user).draw();
-    $('.toast-body').text(user['fullName'] + 'has just joined.');
+    $('.toast-body').text(user['fullName'] + ' joined the Avenger.');
     $('.toast').toast('show');
 });
 
