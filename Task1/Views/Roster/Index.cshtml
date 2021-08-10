@@ -1,0 +1,45 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Roster</h1>
+    <p>Avenger only!</p>
+    <table id="users" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>FullName</th>
+                <th>GroupName</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="toast" data-delay="2000" data-animation="true" style="position: absolute; top: 20px; right: 20px;">
+    <div class="toast-body custom_toastBody">
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/notification.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#users').DataTable({
+                "fixedHeader": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url": '/api/Users',
+                    "type": "GET",
+                    "datatype": "json",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { 'data': 'fullName' },
+                    { 'data': 'groupName' },
+                    { 'data': 'age' }
+                ],
+            });
+        });
+    </script>
+}

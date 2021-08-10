@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tasks</h1><p>Created On: "8/10/2021"</p>
+    <p>
+        <ul style="list-style-type: none;">
+            <li>
+                api docs can be found on /swagger.
+            </li>
+            <li>There are no users so no data initially on datatable.</li>
+            <li>Data is not persisted on the database, just for live run on cache.</li>
+        </ul>
+        <br />
+        <ul style="list-style-type: none;">
+            <li>
+                User Credentials for Basic Auth(only applicable for POST method on Users endpoint):
+            </li>
+            <li>Username: BatMan123</li>
+            <li>Password: heLOgen92</li>
+        </ul>
+    </p>
+    <a href="/swagger" class="btn btn-success btn-lg custom_button" target="_blank">Swagger</a>
+    <a asp-controller="Roster" asp-action="Index" class="btn btn-primary btn-lg custom_button" target="_blank">Roster</a>
+</div>
