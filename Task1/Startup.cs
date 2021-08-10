@@ -36,7 +36,7 @@ namespace Task1
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Task1", Version = "v1" });
                 c.AddSecurityDefinition("Basic", new OpenApiSecurityScheme
                 {
-                    Description = "Only this works: (Username: BatMan123 | Password: heLOgen92).",
+                    Description = "Only this works: (Username: BatMan123) | (Password: heLOgen92).",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.Http,
