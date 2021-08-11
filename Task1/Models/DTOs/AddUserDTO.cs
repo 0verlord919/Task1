@@ -13,6 +13,6 @@ namespace Task1.Models.DTOs
         [Required(ErrorMessage = "GroupName Required!")]
         public string GroupName { get; set; }
         [Required(ErrorMessage = "Age Required!")]
-        public int Age { get; set; }
+        public int? Age { get; set; }
     }
 }

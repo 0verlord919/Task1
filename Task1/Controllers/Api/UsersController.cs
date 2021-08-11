@@ -53,20 +53,24 @@ namespace Task1.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddUser(AddUserDTO user)
+        public async Task<IActionResult> AddUser([FromBody] AddUserDTO user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             IEnumerable<User> users = new List<User>();
             users = _cacher.GetCache<User>("Users");
             var userList = new List<User>();
-            if(users is not null)
+            if (users is not null)
             {
-                userList = users.Where(x=>x.GroupName.ToUpper() == "AVENGER").ToList();
+                userList = users.Where(x => x.GroupName.ToUpper() == "AVENGER").ToList();
             }
 
             var newUser = new User();
             newUser.FullName = user.FullName;
             newUser.GroupName = user.GroupName;
-            newUser.Age = user.Age;
+            newUser.Age = user.Age ?? 0;
             userList.Add(newUser);
             _cacher.SetCache<User>("Users", userList);
 
